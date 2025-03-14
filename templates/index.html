@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django API Интеграция</title>
+</head>
+<body>
+    <h1>Колдонуучулардын тизмеси:</h1>
+    <ul id="user-list"></ul>
+
+    <script>
+        fetch('http://127.0.0.1:8000/users/')  // Django API'га сурам жөнөтөбүз
+            .then(response => response.json())  // JSON маалымат алабыз
+            .then(data => {
+                const userList = document.getElementById('user-list');
+                data.forEach(user => {
+                    const li = document.createElement('li');
+                    li.textContent = `${user.name} - ${user.email}`;
+                    userList.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Ката:', error));
+    </script>
+</body>
+</html>
