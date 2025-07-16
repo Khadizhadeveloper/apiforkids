@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 
     # ✅ Наше приложение
     'users',
+
 ]
 
 # ✅ Исправленный DRF (Swagger + JSON Renderer)
