@@ -17,5 +17,6 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-def index(request):
-    return render(request, 'users/index.html')
+def user_list(request):
+    users = User.objects.all()
+    return render(request, 'index.html', {'users': users})
